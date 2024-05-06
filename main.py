@@ -67,8 +67,8 @@ def main():
         st.subheader("Answer")
         st.write(response["output_text"])
         st.subheader("Doc Data")
-        doc_data = vectordb.get_query_data(user_question, selected_file, selected_type)
-        st.write(doc_data)
+        # doc_data = vectordb.get_query_data(user_question, selected_file, selected_type)
+        # st.write(doc_data)
         
     
 
