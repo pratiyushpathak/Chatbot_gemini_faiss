@@ -5,6 +5,7 @@ import google.generativeai as genai
 from langchain_google_genai import GoogleGenerativeAIEmbeddings, ChatGoogleGenerativeAI
 from langchain_community.vectorstores import faiss
 from dotenv import load_dotenv
+import streamlit as st
 
 
 
