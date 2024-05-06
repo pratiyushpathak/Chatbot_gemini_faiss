@@ -118,9 +118,9 @@ def main():
         #         vectordb.append_to_store(text_chunks, selected_file)
         #         st.success("Done")
         
-        st.subheader("Questions Asked:")
-        for idx, question in enumerate(st.session_state.asked_questions):
-            st.write(f"{idx + 1}. {question}")
+        # st.subheader("Questions Asked:")
+        # for idx, question in enumerate(st.session_state.asked_questions):
+        #     st.write(f"{idx + 1}. {question}")
                 
         
     
