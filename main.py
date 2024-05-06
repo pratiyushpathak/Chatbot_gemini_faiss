@@ -4,24 +4,24 @@ import vectordb, chatbot01
 import os
 import pandas as pd
 
-def save_uploaded_file(uploaded_files, target_folder):
-    """
-    Save an uploaded file to a specified target folder.
+# def save_uploaded_file(uploaded_files, target_folder):
+#     """
+#     Save an uploaded file to a specified target folder.
  
-    Parameters:
-    - uploaded_file (BytesIO): The uploaded file object.
-    - target_folder (str): The path to the target folder where the file will be saved.
-    """
-    if not os.path.exists(target_folder):
-        os.makedirs(target_folder)
+#     Parameters:
+#     - uploaded_file (BytesIO): The uploaded file object.
+#     - target_folder (str): The path to the target folder where the file will be saved.
+#     """
+#     if not os.path.exists(target_folder):
+#         os.makedirs(target_folder)
  
-    saved_file_paths = []
-    for uploaded_file in uploaded_files:
-        file_path = os.path.join(target_folder, uploaded_file.name)
-        with open(file_path, "wb") as file:
-            file.write(uploaded_file.getbuffer())
-        saved_file_paths.append(file_path)
-    return saved_file_paths
+#     saved_file_paths = []
+#     for uploaded_file in uploaded_files:
+#         file_path = os.path.join(target_folder, uploaded_file.name)
+#         with open(file_path, "wb") as file:
+#             file.write(uploaded_file.getbuffer())
+#         saved_file_paths.append(file_path)
+#     return saved_file_paths
 
 def get_file_name(files):
     names =[]
@@ -79,16 +79,16 @@ def main():
         
         # Saving the uploaded file:
         
-        if pdf_docs is not None:
-            save_button = st.button("Save Files")
-            if save_button:
-                target_folder = "uploaded_files"
-                saved_file_paths = save_uploaded_file(pdf_docs, target_folder)
-                st.success(f"Files saved successfully at: {', '.join(saved_file_paths)}")
+        # if pdf_docs is not None:
+        #     save_button = st.button("Save Files")
+        #     if save_button:
+        #         target_folder = "uploaded_files"
+        #         saved_file_paths = save_uploaded_file(pdf_docs, target_folder)
+        #         st.success(f"Files saved successfully at: {', '.join(saved_file_paths)}")
             
         # ==========
         
-        if st.button("Submit & Process"):
+        if st.button("Upload the pdf file"):
                 with st.spinner("Processing..."):
                     raw_text = vectordb.get_pdf_text(pdf_docs)
                     file_type = get_file_type(pdf_docs)
@@ -98,7 +98,7 @@ def main():
                     st.success("Done")
                     
         # Vectordb creating for csv
-        if st.button("Make new vector db of csv"):
+        if st.button("Upload the CSV file"):
             with st.spinner("Processing..."):
                 # raw_text = vectordb.get_csv_text()
                 file_type = get_file_type(pdf_docs)
