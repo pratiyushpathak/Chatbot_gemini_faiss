@@ -66,7 +66,7 @@ def main():
         response = chatbot01.user_input(user_question,selected_type, selected_file)
         st.subheader("Answer")
         st.write(response["output_text"])
-        st.subheader("Doc Data")
+        # st.subheader("Doc Data")
         # doc_data = vectordb.get_query_data(user_question, selected_file, selected_type)
         # st.write(doc_data)
         
