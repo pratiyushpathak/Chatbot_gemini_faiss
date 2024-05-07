@@ -88,8 +88,8 @@ def main():
             
         # ==========
 
-        if st.button("Submit & Process") and pdf_docs:
-            extension = get_file_type(pdf_docs)
+        if st.button("Submit & Process"):
+            extension = get_file_type(pdf_docs) if pdf_docs else ""
             if extension[0] == "pdf":
                 with st.spinner("Processing..."):
                     raw_text = vectordb.get_pdf_text(pdf_docs)
@@ -114,8 +114,7 @@ def main():
                 st.warning("Please upload pdf or csv file")
 
      
-        else:
-            st.warning("Please select a file")
+
          
                 
         
