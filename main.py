@@ -90,7 +90,7 @@ def main():
 
         if st.button("Submit & Process"):
             extension = get_file_type(pdf_docs)
-            if extension == "pdf":
+            if extension[0] == "pdf":
                 with st.spinner("Processing..."):
                     raw_text = vectordb.get_pdf_text(pdf_docs)
                     file_type = get_file_type(pdf_docs)
@@ -99,7 +99,7 @@ def main():
                     vectordb.append_to_store(text_chunks,file_type)
                     st.success("Done")
             
-            elif extension == "csv":
+            elif extension[0] == "csv":
                 with st.spinner("Processing..."):
                 # raw_text = vectordb.get_csv_text()
                     file_type = get_file_type(pdf_docs)
