@@ -1,4 +1,4 @@
-import streamlit as st               
+ import streamlit as st               
 from langchain.embeddings.sentence_transformer import SentenceTransformerEmbeddings
 import vectordb, chatbot01
 import os
@@ -97,7 +97,6 @@ def main():
                     text_chunks = vectordb.get_text_chunks(raw_text)
                     vectordb.get_vector_store(text_chunks,file_type, pdf_docs[0].name)
                     vectordb.append_to_store(text_chunks,file_type)
-                    st.rerun()
                     st.success("Done")
             
             elif extension[0] == "csv":
@@ -107,11 +106,12 @@ def main():
                     text_chunks = vectordb.get_text_chunks(pd.read_csv(pdf_docs[0]).to_string())
                     vectordb.get_vector_store(text_chunks, file_type, pdf_docs[0].name)
                     vectordb.append_to_store(text_chunks,file_type)
-                    st.rerun()
                     st.success("Done")
             
             else:
                 st.warning("Please upload pdf or csv file")
+
+            st.rerun()
 
      
 
