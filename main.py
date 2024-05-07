@@ -97,8 +97,8 @@ def main():
                     text_chunks = vectordb.get_text_chunks(raw_text)
                     vectordb.get_vector_store(text_chunks,file_type, pdf_docs[0].name)
                     vectordb.append_to_store(text_chunks,file_type)
-                    st.success("Done")
                     st.experimental_rerun()
+                    st.success("Done")
             
             elif extension[0] == "csv":
                 with st.spinner("Processing..."):
@@ -107,8 +107,8 @@ def main():
                     text_chunks = vectordb.get_text_chunks(pd.read_csv(pdf_docs[0]).to_string())
                     vectordb.get_vector_store(text_chunks, file_type, pdf_docs[0].name)
                     vectordb.append_to_store(text_chunks,file_type)
-                    st.success("Done")
                     st.experimental_rerun()
+                    st.success("Done")
             
             else:
                 st.warning("Please upload pdf or csv file")
