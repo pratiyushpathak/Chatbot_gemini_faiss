@@ -87,8 +87,8 @@ def main():
         #         st.success(f"Files saved successfully at: {', '.join(saved_file_paths)}")
             
         # ==========
-        
-         if st.button("Submit & Process"):
+
+        if st.button("Submit & Process"):
             extension = get_file_type(pdf_docs)
             if extension == "pdf":
                 with st.spinner("Processing..."):
@@ -111,6 +111,8 @@ def main():
             
             else:
                 st.warning("Please upload pdf or csv file")
+        
+         
                 
         
         
