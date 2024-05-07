@@ -88,7 +88,7 @@ def main():
             
         # ==========
 
-        if st.button("Submit & Process"):
+        if st.button("Submit & Process") and pdf_docs:
             extension = get_file_type(pdf_docs)
             if extension[0] == "pdf":
                 with st.spinner("Processing..."):
@@ -112,7 +112,10 @@ def main():
             
             else:
                 st.warning("Please upload pdf or csv file")
-        
+
+     
+        else:
+            st.warning("Please select a file")
          
                 
         
