@@ -89,7 +89,7 @@ def main():
         # ==========
 
         if st.button("Submit & Process"):
-            extension = get_file_type(pdf_docs) if pdf_docs else ""
+            extension = get_file_type(pdf_docs) if pdf_docs else [""]
             if extension[0] == "pdf":
                 with st.spinner("Processing..."):
                     raw_text = vectordb.get_pdf_text(pdf_docs)
