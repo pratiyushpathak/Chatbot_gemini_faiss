@@ -88,7 +88,9 @@ def main():
             
         # ==========
         
-        if st.button("Upload the pdf file"):
+         if st.button("Submit & Process"):
+            extension = get_file_type(pdf_docs)
+            if extension == "pdf":
                 with st.spinner("Processing..."):
                     raw_text = vectordb.get_pdf_text(pdf_docs)
                     file_type = get_file_type(pdf_docs)
@@ -96,17 +98,19 @@ def main():
                     vectordb.get_vector_store(text_chunks,file_type, pdf_docs[0].name)
                     vectordb.append_to_store(text_chunks,file_type)
                     st.success("Done")
-                    
-        # Vectordb creating for csv
-        if st.button("Upload the CSV file"):
-            with st.spinner("Processing..."):
+            
+            elif extension == "csv":
+                with st.spinner("Processing..."):
                 # raw_text = vectordb.get_csv_text()
-                file_type = get_file_type(pdf_docs)
-                text_chunks = vectordb.get_text_chunks(pd.read_csv(pdf_docs[0]).to_string())
-                vectordb.get_vector_store(text_chunks, file_type, pdf_docs[0].name)
-                vectordb.append_to_store(text_chunks,file_type)
-                
-                st.success("Done")
+                    file_type = get_file_type(pdf_docs)
+                    text_chunks = vectordb.get_text_chunks(pd.read_csv(pdf_docs[0]).to_string())
+                    vectordb.get_vector_store(text_chunks, file_type, pdf_docs[0].name)
+                    vectordb.append_to_store(text_chunks,file_type)
+                    
+                    st.success("Done")
+            
+            else:
+                st.warning("Please upload pdf or csv file")
                 
         
         
