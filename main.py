@@ -98,7 +98,7 @@ def main():
                     vectordb.get_vector_store(text_chunks,file_type, pdf_docs[0].name)
                     vectordb.append_to_store(text_chunks,file_type)
                     st.success("Done")
-                    st.experimental_rerun
+                    st.experimental_rerun()
             
             elif extension[0] == "csv":
                 with st.spinner("Processing..."):
@@ -108,7 +108,7 @@ def main():
                     vectordb.get_vector_store(text_chunks, file_type, pdf_docs[0].name)
                     vectordb.append_to_store(text_chunks,file_type)
                     st.success("Done")
-                    st.experimental_rerun
+                    st.experimental_rerun()
             
             else:
                 st.warning("Please upload pdf or csv file")
