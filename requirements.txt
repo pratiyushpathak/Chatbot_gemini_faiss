@@ -18,3 +18,4 @@ faiss-cpu
 langchain_google_genai
 pypandoc
 selenium
+langchain-community
